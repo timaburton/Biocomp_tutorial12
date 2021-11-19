@@ -27,5 +27,5 @@ ggplot(b, aes(x = region, y = observations)) +
   theme_classic()
 
 #2-3 Do the bar and scatter plots tell you different stories? Why?
-# Yes. Population for all groups seem to be the same but they are slightly different from scatter plot.
+# Yes. Population for all groups seem to be the same in the bar plot but they are slightly different from the scatter plot.
 # The reason is that bar plots mainly show the mean values, but less direct for showing the data distribution; instead, scatter plots can directly show the data distribution including outliers, but are hard to see the mean values. 
