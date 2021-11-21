@@ -10,14 +10,23 @@ library(cowplot)
 
 ##Part 1
 #Find data on two variables that you would expect to be related to each other 
-#Write a script that loads the text file and produces a scatter plot with a trendline
+#Write a script that loads the text file and produces a scatter plot with a trend line
+
+#Data was found online from: 
+#Data shows Polio cases per million people and the vaccination rate of one-year olds
 
 #Load the text file 
+data1<-read.table(file = "Polio.txt", header = TRUE, sep="\t", stringsAsFactors = FALSE)
 
 #Create the scatter plot with a trend line 
-ggplot( aes()) + geom_point() + stat_smooth(method = "lm")
+ggplot(data = data1, aes(x = Vaccine, y = Cases)) + 
+  geom_point() + stat_smooth(method = "lm") + 
+  xlab("Percent of Vaccinated One Year Olds") + 
+  ylab("Cases per 1 Million People") + 
+  ggtitle("Polio Cases vs Vaccination Rate of One Year Olds") + 
+  theme_bw()
 
-##Part 2
+l##Part 2
 #Write a script that generates two figures from data.txt
 #Read the data.txt file 
 data<-read.table("data.txt", header = TRUE, sep=",", stringsAsFactors = FALSE)
