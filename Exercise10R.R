@@ -12,6 +12,10 @@ library(cowplot)
 #Find data on two variables that you would expect to be related to each other 
 #Write a script that loads the text file and produces a scatter plot with a trendline
 
+#Load the text file 
+
+#Create the scatter plot with a trend line 
+ggplot( aes()) + geom_point() + stat_smooth(method = "lm")
 
 ##Part 2
 #Write a script that generates two figures from data.txt
