@@ -26,7 +26,7 @@ ggplot(data = data1, aes(x = Vaccine, y = Cases)) +
   ggtitle("Polio Cases vs Vaccination Rate of One Year Olds") + 
   theme_bw()
 
-l##Part 2
+##Part 2
 #Write a script that generates two figures from data.txt
 #Read the data.txt file 
 data<-read.table("data.txt", header = TRUE, sep=",", stringsAsFactors = FALSE)
