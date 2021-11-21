@@ -1,0 +1,33 @@
+##QUESTION 1
+#load packages
+library(tidyverse)
+library(ggResidpanel)
+#read in data
+brain <- read_csv("brain.csv")
+#look at the data
+glimpse(brain)
+#add scatter plot with trend line 
+brain %>%
+  ggplot(aes(x = lnMass, y = lnBrain, color = species)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_classic() +
+  xlab("ln(body mass)") + ylab("ln(brain size)")
+
+##QUESTION 2
+data <- read.table(file = "data.txt", header = TRUE, sep = ',',stringsAsFactors = FALSE)
+#bar of mean 
+ bar <- ggplot(data, aes(x = region, y = observations)) +
+   stat_summary(fun = mean, geom ="bar") +
+   theme_classic() +
+   xlab("Region") +
+   ylab("Observation")
+ #scatter plot
+scatter <- ggplot(data, aes(x = region, y = observations)) +
+   geom_jitter() +
+   theme_classic() +
+   xlab("region") +
+   ylab("observation")
+
+#these plots do not show the same thing even though the mean value of the populations is fairly similar, they are not distributed in the same manner which 
+#can be seen in the scatter plot 
