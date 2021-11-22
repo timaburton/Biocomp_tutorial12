@@ -6,7 +6,7 @@ a <-  read.table("drug_release.txt", header = T, sep = "", stringsAsFactors = F)
 head(a)
 ggplot(a,aes(x = hours, y = cumulative_drug_release)) +
   geom_point(size = 3) +
-  stat_smooth(se=FALSE) +
+  stat_smooth(method = "loess", se=FALSE) +
   xlab("Time (hour)") +
   ylab("cumulative drug release (ng)") +
   theme_classic() +
