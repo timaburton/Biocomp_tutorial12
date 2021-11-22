@@ -16,3 +16,7 @@ ggplot(data = fileData,
 ggplot(data = fileData,
        aes(x = region, y = observations)) +
   geom_jitter(alpha = .1) 
+
+# The bar graph and scatter plot tell different stories because the scatter plot shows a wide range of values
+# whereas the bar graph is pretty much all the same values. The averages happen to be similar but the data
+# points for east, west, and south are not very grouped.
