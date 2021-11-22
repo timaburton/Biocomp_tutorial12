@@ -1,0 +1,41 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+#load Libraries
+```{r libraries}
+library(tidyverse)
+```
+
+#Question 1 
+
+#load in data
+```{r load data}
+setwd("/Users/sarahnicholls/Desktop/Biocomp_tutorial12")
+weight_height <- read_csv("weight-height.csv")
+
+weight_height
+```
+
+#R Scatter plot
+```{r Plot}
+ggplot(data = weight_height, aes(x = Height, y=Weight)) + geom_point() + geom_smooth(method = lm)
+```
+
+#Question 2 
+
+```{r summary mean}
+
+mean_table <- data.table("Variable" = c("Height_Mean(in)", "Weight_Mean(lbs)"), "Mean" = c(mean(weight_height$Height), mean(weight_height$Weight)))
+
+ggplot(mean_table, aes(x= mean_table$Variable, y = mean_table$Mean)) + geom_bar(stat = "identity") + labs(y = "Mean" , x = "Variable")
+ 
+#This shows how the average Height and average weights are signigicantly different than eachother. This tells a different but somewhat blurred story as it does not show any relationship between height and weight. This would be interested in looking at individual variables but provides little insight into how each variable works in relationship to one another. 
+```
+
+
+```{r geom_jitter}
+ggplot(data = weight_height, aes(x = Height, y=Weight)) + geom_jitter(alpha = 0.1)
+#This chart allows you too see all the inidividual observations since there is more shading to indicate higher areas of clustering in points. The most striking part of this ovservation is that there are infact less shaded reagions in the middle of the graph compared to the solid block "line" that exists in the scatter plot above. It shows how this is truly and average collection of people that fall on all parts of the spectrum on the height and weight scale. 
+```
+
