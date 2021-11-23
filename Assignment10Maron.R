@@ -12,3 +12,20 @@ ggplot(data=data, aes(x=Time, y=Energy))+
   xlab("Time(s)")+
   theme_classic()+
   stat_smooth(method = "lm")
+
+#Problem 2 
+obsv<-read.table(file="data.txt", header=TRUE, sep=",")
+#Barplot using means of 4 populations 
+ggplot(data=obsv, aes(x=region))+
+  geom_bar()+
+  theme_classic()
+
+#Scatterplot of all observations (jitter)
+ggplot(data=obsv, aes(x=region, y=observations))+
+  geom_jitter()+
+  theme_classic()
+
+  #The two plots do tell different stories, as the scatterplot shows the distribution of the population 
+#as well as the different groupings of data. It allows for a visualization of the distribution by region.
+#The bar plot does not show much information besides the total number of observations within a region.
+#There is no way to diffrentiate from the regions, it is only shown that they all have the same total count. 
