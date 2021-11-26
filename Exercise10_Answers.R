@@ -15,7 +15,7 @@ head(marathon)
 library(ggplot2)
 
 # Scatter plot of two variables: mile count vs time in minutes
-ggplot(marathon, aes(x=mile,y=time))+
+ggplot(data=marathon, aes(x=mile,y=time))+
   geom_point(size=3)+
   xlab("Mile Count")+
   ylab("Time Spent Running (minutes)")+
@@ -24,4 +24,32 @@ ggplot(marathon, aes(x=mile,y=time))+
 
 
 # Question 2
+
+# Load data from data.txt
+data <- read.table("data.txt", sep = ",", header=TRUE, stringsAsFactors = TRUE)
+head(data)
+
+# Bar plot of the means of four observations 
+ggplot(data=data, aes(x=region,y=observations,color=region))+
+  stat_summary(fun='mean',geom='bar')+
+  xlab("Regions")+
+  ylab("Mean of Observations")+
+  theme_classic()
+
+# Scatter plot of all observations 
+ggplot(data=data, aes(x=region, y=observations, color=region))+
+  geom_point()+
+  geom_jitter()+
+  xlab("Region")+
+  ylab("Observations")+
+  theme_classic()
+
+
+
+
+
+
+
+
+
 
